@@ -16,6 +16,9 @@ app.secret_key = "YOUR_SECRET_KEY"
 @app.route("/")
 def home():
     return "Bickie uploader is running!"
+@app.route("/ping")
+def ping():
+    return "pong"
 
 # OAuth config
 CLIENT_SECRETS_FILE = "/etc/secrets/client_secret.json"

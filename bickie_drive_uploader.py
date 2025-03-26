@@ -13,6 +13,9 @@ import tempfile
 
 app = Flask(__name__)
 app.secret_key = "YOUR_SECRET_KEY"
+@app.route("/")
+def home():
+    return "Bickie uploader is running!"
 
 # OAuth config
 CLIENT_SECRETS_FILE = "/etc/secrets/client_secret.json"

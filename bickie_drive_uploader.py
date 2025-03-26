@@ -15,7 +15,7 @@ app = Flask(__name__)
 app.secret_key = "YOUR_SECRET_KEY"
 
 # OAuth config
-CLIENT_SECRETS_FILE = "client_secret.json"
+CLIENT_SECRETS_FILE = "/etc/secrets/client_secret.json"
 SCOPES = ["https://www.googleapis.com/auth/drive.file"]
 REDIRECT_URI = "http://localhost:5000/oauth2callback"
 
@@ -81,4 +81,4 @@ def credentials_to_dict(creds):
     }
 
 if __name__ == "__main__":
-    app.run("localhost", 5000, debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=True)
